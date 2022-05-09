@@ -11,7 +11,8 @@ const sound = Audios()
 
 const timer = Timer({
   minutesDisplay,
-  secondsDisplay
+  secondsDisplay,
+  resetControls: controls.reset
 })
 
 Events({ timer, sound })

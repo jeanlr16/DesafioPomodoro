@@ -1,15 +1,20 @@
+import Sounds from "./sounds.js"
+
 export default function Timer({
   minutesDisplay,
   secondsDisplay,
+
 }) {
 
   let timerTimeOut
   let minutes = 25
   let seconds = 0
 
-  function updateDisplay(minutes, seconds) {
+  function updateDisplay(newMinutes, seconds) {
 
-    minutesDisplay.textContent = String(minutes).padStart(2, "0")
+    newMinutes = newMinutes === undefined ? minutes : newMinutes
+    seconds = seconds === undefined ? 0 : seconds
+    minutesDisplay.textContent = String(newMinutes).padStart(2, "0")
     secondsDisplay.textContent = String(seconds).padStart(2, "0")
   }
 
@@ -69,6 +74,7 @@ export default function Timer({
       updateDisplay(minutes, String(seconds - 1))
 
       countDown()
+
     }, 1000)
   }
 
